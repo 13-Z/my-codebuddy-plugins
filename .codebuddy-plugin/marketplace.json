@@ -1,0 +1,7 @@
+[
+  {
+    "name": "hello-world",
+    "source": "./plugins/hello-world",
+    "description": "我的第一个 CodeBuddy 插件"
+  }
+]
