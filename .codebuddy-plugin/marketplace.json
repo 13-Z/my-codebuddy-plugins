@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
   {
     "name": "hello-world",
@@ -5,3 +6,79 @@
     "description": "我的第一个 CodeBuddy 插件"
   }
 ]
+=======
+{
+  "name": "BuddyMemoryVault",
+  "version": "1.0.0",
+  "description": "长期记忆管理插件：存储/检索/审查/清理对话记忆，支持重要度分级与自定义存储路径。",
+  "description_en": "Long-term memory manager: store/search/review/cleanup conversation memories with importance tiers and configurable storage path.",
+  "repo": "https://github.com/13-Z/my-codebuddy-plugins",
+  "entry": {
+    "service": "memory_service.py",
+    "review": "memory_review.py",
+    "demo": "memory_integration.py",
+    "quick_start": "quick_start.py"
+  },
+  "commands": [
+    {
+      "name": "memory:review",
+      "description": "月度审查界面（7/15/30天阈值，勾选删除）",
+      "description_en": "Monthly review UI (7/15/30-day thresholds, select to delete)",
+      "run": "python memory_review.py"
+    },
+    {
+      "name": "memory:demo",
+      "description": "完整集成演示",
+      "description_en": "Full integration demo",
+      "run": "python memory_integration.py"
+    },
+    {
+      "name": "memory:quick",
+      "description": "快速上手示例（含手动清理示范）",
+      "description_en": "Quick start (with manual cleanup demo)",
+      "run": "python quick_start.py"
+    }
+  ],
+  "features": {
+    "zh": [
+      "重要度分级 high/medium/low → 模块 important/normal，检索时展示",
+      "月度审查清单：7/15/30 天阈值，勾选删除",
+      "自动/手动清理低/普通重要性过期记忆，保留最新 500 条",
+      "可配置存储路径：MEM_DB_PATH > D:/codebuddy_memory_db > ./memory_db",
+      "集成示例与快速上手脚本"
+    ],
+    "en": [
+      "Importance tiers (high/medium/low) → modules (important/normal), shown in search results",
+      "Monthly review checklist: 7/15/30-day thresholds, selectable deletion",
+      "Auto/manual cleanup for stale low/medium memories, keeps latest 500",
+      "Configurable storage path: MEM_DB_PATH > D:/codebuddy_memory_db > ./memory_db",
+      "Integration demo and quick start"
+    ]
+  },
+  "install": {
+    "zh": [
+      "pip install -r requirements.txt",
+      "可选：设置 MEM_DB_PATH 指向大盘（如 D:/codebuddy_memory_db）"
+    ],
+    "en": [
+      "pip install -r requirements.txt",
+      "Optional: set MEM_DB_PATH to a large drive (e.g., D:/codebuddy_memory_db)"
+    ]
+  },
+  "env": {
+    "MEM_DB_PATH": {
+      "description": "记忆库存储路径（建议大盘）",
+      "description_en": "Memory store path (prefer large drive)",
+      "required": false
+    }
+  },
+  "dependencies": [
+    "chromadb>=1.5.0",
+    "sentence-transformers>=2.2.0",
+    "torch>=2.0.0"
+  ],
+  "license": "MIT",
+  "tags": ["memory", "retrieval", "chroma", "ai-assistant", "productivity"],
+  "screenshots": []
+}
+>>>>>>> 003482e7a4d5f3a80c0c373169c8fb653bd68983

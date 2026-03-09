@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+memory_db/
+test_memory_db/
+.cache/
+.huggingface/
+codebuddy_memory_db/
