@@ -1,0 +1,66 @@
+{
+  "name": "BuddyMemoryVault",
+  "version": "1.0.0",
+  "description": "长期记忆管理插件：存储/检索/审查/清理对话记忆，支持磁盘自定义路径与重要度分级。",
+  "description_en": "Long-term memory manager: store/search/review/cleanup conversation memories, with configurable storage path and importance tiers.",
+
+  "entry": {
+    "service": "memory_service.py",
+    "integration_demo": "memory_integration.py",
+    "quick_start": "quick_start.py",
+    "review": "memory_review.py"
+  },
+  "commands": [
+    {
+      "name": "memory:review",
+      "description": "月度记忆审查界面（支持7/15/30天阈值选择，勾选删除）",
+      "run": "python memory_review.py"
+    },
+    {
+      "name": "memory:demo",
+      "description": "完整集成演示",
+      "run": "python memory_integration.py"
+    },
+    {
+      "name": "memory:quick",
+      "description": "快速开始示例（含手动清理示范）",
+      "run": "python quick_start.py"
+    }
+  ],
+  "env": {
+    "MEM_DB_PATH": {
+      "description": "记忆库存储路径（建议指向大盘，如 D:/codebuddy_memory_db）",
+      "required": false
+    }
+  },
+  "dependencies": [
+    "chromadb>=1.5.0",
+    "sentence-transformers>=2.2.0",
+    "torch>=2.0.0"
+  ],
+  "rules": [
+    ".codebuddy/rules/auto_store_important_decisions.mdc",
+    ".codebuddy/rules/retrieve_relevant_memories.mdc"
+  ],
+  "features": {
+    "zh": [
+      "自动存储/检索对话记忆，支持重要度分级（high/medium/low）与模块标注（important/normal）",
+      "多阈值月度审查：7/15/30天可选，列表勾选删除，保留重要记忆",
+      "自动/手动清理：低/普通重要性过期清理，保底保留最新500条；可自定义阈值",
+      "可配置存储路径：支持 MEM_DB_PATH，优先大盘（如 D 盘），再回退项目目录",
+      "集成示例与快速上手：memory_integration.py、quick_start.py" 
+    ],
+    "en": [
+      "Auto store/search memories with importance tiers (high/medium/low) and modules (important/normal)",
+      "Monthly review with thresholds 7/15/30 days; checklist UI to delete while keeping important items",
+      "Auto/manual cleanup for stale low/medium memories, keep latest 500; thresholds configurable",
+      "Configurable storage path via MEM_DB_PATH, prefer large drive (e.g., D:), fallback to project dir",
+      "Integration demos and quick start: memory_integration.py, quick_start.py"
+    ]
+  },
+  "notes": [
+    "默认存储目录优先 MEM_DB_PATH，其次 D:/codebuddy_memory_db，最后 ./memory_db",
+    "检索时展示重要度/模块，自动清理低/普通重要性且过期的记忆（保底保留最新500条）"
+  ]
+
+}
