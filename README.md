@@ -2,7 +2,22 @@
 
 基于 ChromaDB 和 Sentence Transformers 的长期记忆系统，可突破单次对话的上下文限制。
 
+### English Overview
+- Long-term memory manager: store/search/review/cleanup conversation memories.
+- Importance tiers & modules: high/medium/low → important/normal, shown in search results.
+- Configurable storage path: `MEM_DB_PATH` preferred (e.g., `D:/codebuddy_memory_db`), fallback `./memory_db`.
+- Monthly review checklist: pick 7/15/30 days, select items to delete.
+- Auto/manual cleanup: stale low/medium memories cleaned with safety floor (keep latest 500).
+- Demos: `memory_integration.py`, quick start `quick_start.py`.
+
+### English Quick Start
+1) Install deps: `pip install -r requirements.txt`
+2) Run demo: `python memory_integration.py`
+3) Monthly review UI: `python memory_review.py` (choose 7/15/30 days and select to delete)
+4) Optional storage path: set `MEM_DB_PATH` (prefer a larger drive) or pass `persist_dir` to `MemoryService`.
+
 ## 功能特性
+
 
 - **自动存储**：检测对话中的重要决策、技术选型、用户偏好并自动存储
 - **语义检索**：基于向量相似度检索相关记忆，支持语义理解
